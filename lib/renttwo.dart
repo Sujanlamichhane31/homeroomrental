@@ -1,39 +1,39 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'SizeConfig.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(SecondPage());
 
-class MyApp extends StatelessWidget {
+class SecondPage extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return LayoutBuilder(builder: (context, constraints){
-      return OrientationBuilder(builder: (context, orientation){
+    return LayoutBuilder(builder: (context, constraints) {
+      return OrientationBuilder(builder: (context, orientation) {
         SizeConfig().init(constraints, orientation);
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          home: Renttwo(),
+          home: RentTwo(),
         );
-      },
-      );
-    },
-    );
+      });
+    });
   }
 }
 
-
-class Renttwo extends StatefulWidget {
+class RentTwo extends StatefulWidget {
   @override
-  _RenttwoState createState() => _RenttwoState();
+  _RentTwoState createState() => _RentTwoState();
 }
 
-class _RenttwoState extends State<Renttwo> {
+class _RentTwoState extends State<RentTwo> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +52,7 @@ class _RenttwoState extends State<Renttwo> {
                   borderRadius: BorderRadius.circular(20.0),
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage("assets/im6.JPG"))
+                      image: AssetImage("assets/images/rent2.jpg"))
               ),
             ),
             SizedBox(height: 2 * SizeConfig.heightMultiplier,),
@@ -82,10 +82,10 @@ class _RenttwoState extends State<Renttwo> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                _facilityCard("assets/im1.JPG", "Wifi"),
-                _facilityCard("assets/im2.JPG", "Heater"),
-                _facilityCard("assets/im3.JPG", "Food"),
-                _facilityCard("assets/im4.JPG", "Gym"),
+                _facilityCard("assets/images/router.png", "Wifi"),
+                _facilityCard("assets/images/heater.png", "Heater"),
+                _facilityCard("assets/images/tray.png", "Food"),
+                _facilityCard("assets/images/gym.png", "Gym"),
               ],
             ),
             SizedBox(height: 4 * SizeConfig.heightMultiplier,),
@@ -149,13 +149,12 @@ class _RenttwoState extends State<Renttwo> {
           ],
         ),
       ),
-  
-  
+
+
     );
   }
 
-
-  Widget _facilityCard(String asset, String name) {
+  _facilityCard(String asset, String name) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
@@ -181,5 +180,3 @@ class _RenttwoState extends State<Renttwo> {
     );
   }
 }
-
-
